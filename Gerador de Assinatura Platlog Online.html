@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://assinatura.platlog.com.br/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Gerador de Assinatura Platlog Online</title>
+  
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="./Gerador de Assinatura Platlog Online_files/jquery-2.0.2.js.download"></script>
+  <link rel="stylesheet" type="text/css" href="./Gerador de Assinatura Platlog Online_files/result-light.css">
+  <link rel="stylesheet" type="text/css" href="./Gerador de Assinatura Platlog Online_files/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./Gerador de Assinatura Platlog Online_files/bootstrap-theme.min.css">
+  <script type="text/javascript" src="./Gerador de Assinatura Platlog Online_files/bootstrap.min.js.download"></script>
+  <style id="compiled-css" type="text/css">
+<!--
+    #tabelaPonto {
+    -width: 30em;
+}
+#assinatura {
+    -margin: 1em;
+    -border: 3px inset gray;
+    
+    background: none;
+}
+.input-group {
+    -width: 16em;
+}
+.form-group input {
+    -text-align: right;
+}
+    
+    
+.panel-heading a:after {
+    font-family:'Glyphicons Halflings', Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+    content:"\e114";
+    float: right;
+    color: grey;
+}
+.panel-heading a.collapsed:after {
+    content:"\e080";
+}
+    
+.input-group-addon.email{
+    width: auto;
+}
+  </style>
+</head><body style="">--&gt;
+
+  
+
+
+    <div class="container">
+    <h2>Gerador de Assinatura Platlog Online</h2>
+    <br>
+  
+    
+<!-- Botão para exibir localidade-->
+<p id="local"></p>
+<p id="address"></p>
+    
+    <form class="form-horizontal">
+
+      <div class="form-group">
+        <label for="nome" class="col-sm-2 control-label">Nome</label>
+        <div name="name" class="col-sm-10">
+          <input name="name" type="text" onkeyup="this.value = this.value.toUpperCase();" class="form-control" id="nome" placeholder="Nome Sobrenome" value="" autocomplete="" maxlength="50">
+        </div>
+      </div>
+
+	<div class="form-group">
+        <label for="Cargo" class="col-sm-2 control-label">Cargo</label>
+        <div name="Cargo" class="col-sm-10">
+          <input name="Cargo" type="text" class="form-control" id="Cargo" placeholder="Cargo" value="" autocomplete="" maxlength="70">
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="email" class="col-sm-2 control-label">Email</label>
+        <div class="col-sm-10">
+          <div class="input-group">
+          <input name="username" type="text" class="form-control" id="email" placeholder="Usuario" value="" autocomplete="" maxlength="25">
+              <div class="input-group-addon email">@refrio.com.br </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="telef" class="col-sm-2 control-label">Telefone</label>
+        <div class="col-sm-10">
+          <input name="telef" type="text" class="form-control" id="telef" placeholder="11 2923-2801" value="" autocomplete="" maxlength="50">
+        </div>
+      </div>
+
+
+
+<!-- bloco do celular -->
+
+<script type="text/javascript">
+    function ShowHideDiv(chkhideCell) {
+        var dvhideCell = document.getElementById("dvhideCell");
+        dvhideCell.style.display = chkhideCell.checked ? "block" : "none";
+    }
+</script>
+
+<div class="form-group">
+<label for="chkhideCell" class="col-sm-2 control-label">Quer Adicionar seu Número de Celular na assinatura?</label>
+<div class="col-sm-10">    
+    <input type="checkbox" id="chkhideCell" onclick="ShowHideDiv(this)">
+  </div>  
+  
+<div id="dvhideCell" style="display: none">
+     
+   <div class="form-group">
+        <label for="cel" class="col-sm-1 control-label">Celular</label>
+        <div class="col-sm-4">
+          <input name="cel" type="text" class="form-control" id="cel" placeholder="11 9.9999-0000" value="" autocomplete="" maxlength="50">
+        </div>
+      </div>
+
+   </div>
+
+  </div>
+
+
+<h3>Selecione a Filial ou Empresa:</h3>
+<div class="form-group">
+    <label for="Localidade" class="col-sm-2 control-label">EMPRESA</label>
+    <div class="col-sm-10">
+    <select name="Item 1" type="text" class="form-control" id="city" placeholder="Selecione" value="" autocomplete="" maxlength="50">
+    <option value="REFRIO - São Paulo"> REFRIO - Jundiai CDM</option>
+
+    </select>
+    </div>
+    </div>
+
+<br>
+
+
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="button" class="btn btn-default" onclick="gerar()"> Gerar Assinatura </button>
+        </div>
+      </div>
+
+    </form>
+
+	<div id="alertdiv" class="alert alert-dismissible hidden" role="alert">
+	    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+	    </button> <span id="alerttext">Text</span>
+	</div>
+          
+    <hr>
+       
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default" id="panel2">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-target="#collapseTwo" class="">
+                        Como colocar a assinatura
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseTwo" class="panel-collapse in" style="height: auto;">
+                <div class="panel-body">
+                    <img src="./Gerador de Assinatura Platlog Online_files/tw6gGRb3.png">
+                </div>
+            </div>
+        </div>
+    </div>
+  <hr>  
+      
+  <br>
+  <h4>Sua Assinatura</h4>        
+
+           
+<div id="assinatura" class="well">
+    <div class="text-muted text-center small">
+        Clique no botão Gerar para criar uma assinatura
+    </div>
+<script type="template/html" id="t2">
+<footer>
+<!--conteudo aqui -->
+
+<style>
+* {
+//  box-sizing: border-box;
+}
+
+.row {
+  margin-left:-1px;
+  margin-right:-350px;
+  
+}
+  
+.column {
+  float: left;
+  width: 70%;
+  height: 100%;
+  padding: 0px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+table {
+  //border-collapse: collapse;
+  border-spacing: 1;
+  width: 100%;
+  border: 0px solid #ddd;
+ }
+
+th, td {
+  text-align: left;
+  padding: 3px;
+}
+
+tr:nth-child(even) {
+   background-color: #ffffff;
+}
+
+</style>
+</head>
+<body>
+
+<div class="row">
+<div class="column">
+<table border=0 cellpadding="0">
+<tbody>
+	<tr>
+		<td valign="left" rowspan="2"><img src="https://www.refrio.com.br/wp-content/uploads/2018/02/refrio-logo.png" align="right">
+	</td>
+		<td valign="bottom" height="50%" colspan="2"><font face="Calibri">
+		<span style="font-size: 20pt; font-weight: bold; color: {{this.corNome}}"> {{this.nome}} 
+		<br> <font face="Calibri"><span style="font-size: 15pt; font-weight: normal; color:{{this.color}}">{{this.Cargo}} </span></span></font> 
+		</td>
+	</tr>
+	<tr>    
+		<td rowspan="2"><img src="http://assinatura.platlog.com.br/barraCel.png" align="left"></td>
+	<td>
+	<div class="column">
+	<table border="0" cellpadding="0" <colgroup><col style="width: 100%;"></colgroup>
+		<tbody>
+		</tbody>
+	
+	<colgroup><col style="width: 100%;"></colgroup>
+		<tbody>
+			<tr> 
+				<td valign="bottom" height="50%" colspan="2"><font face="Calibri">
+				<span style="font-size: 15pt; font-weight: normal; color:{{this.color}}"> {{this.cel}} 
+				<span style="font-size: 1pt; font-weight: normal; color: #FFFFFF">.</span></span></font>
+				</td>
+			</tr>
+			<tr> 
+<!-- telefone -->		
+			<td valign="bottom" height="50%" colspan="2"><font face="Calibri">
+				<span style="font-size: 14pt; font-weight: normal; color:{{this.color}}">+55 {{this.telef}} </span></span></font> 
+			</td>
+			</tr>
+			<tr> 
+				<td valign="bottom" height="50%" colspan="2"><font face="Calibri">
+				<span style="font-size: 14pt; font-weight: normal; color:{{this.color}}"> {{this.email}}{{this.dominio}} </span></font>
+				</td>
+			</tr>
+			<tr>
+				<td valign="bottom" height="50%" colspan="2"><font face="Calibri">
+				<span style="font-size: 14pt; font-weight: normal; color:{{this.color}}"> {{this.site}} </span></font>
+				</td>
+			</tr>
+			
+			<tr> 
+				<td valign="bottom" height="50%" width=1000px colspan="2"><font face="Calibri">
+				<span style="font-size: 14pt; font-weight: normal; color:{{this.color}}"> {{this.address}} <br> {{this.bairro}} </span></font> 		
+				</td>
+			</tr>
+		</tbody>
+	</table>  
+	</div>
+	</td>
+	</tr>
+</tbody>
+
+
+</table>
+   
+  </div>
+  
+</div>
+
+</body>
+</html>
+
+</footer>
+</script>
+</div>
+     
+<footer>
+    <div class="footer text-center text-muted small">Refrio Soluções Logisticas © 2020</div>
+</footer>
+
+
+
+
+<script type="text/javascript">//
+
+    
+var template;
+var dismiss;
+
+window.onload = function () {
+    template = generateTemplate("#t2");
+}
+
+function gerar() {
+var address = "vazio"
+var bairro = "vazio"
+var dominio = "vazio"
+var site = "vazio"
+var logo = "vazio"
+var isChecked = document.getElementById('chkhideCell').checked;
+var dados
+var text = document.getElementById("dvhideCell");
+var s = document.getElementById('city');
+var city = s.options[s.selectedIndex].value
+
+
+if (city == "Jundiaí - São Paulo") {
+address = "Rua Wilhelm Winter, 301";
+bairro = "Distrito Industrial Jundiaí, SP | CEP 13213-000";
+fixo = "(11) 2923-2801";
+dominio = "@platlog.com.br";
+site="www.platlog.com.br"
+logo="logo.png"
+barra="barra.png"
+barraCel="barraCel.png"
+color="#7F7F7F"
+corNome="#0077C0"
+
+}
+else if 
+(city == "REFRIO - São Paulo") {
+address = "Rua Wilhelm Winter, Nº 301";
+bairro = "Distrito Industrial Jundiai, SP | CEP13213-000";
+fixo = "(31) 3361-3112";
+dominio = "@refrio.com.br";
+site="www.refrio.com.br"
+logo="logo.png"
+barra="https://www.refrio.com.br/wp-content/uploads/2018/02/refrio-logo.png"
+
+barraCel="http://assinatura.platlog.com.br/barraCel.png"
+
+color="#7F7F7F"
+corNome="#0077C0"
+
+
+} else if 
+(city == "Contagem - Minas Gerais") {
+address = "Av. Wilson Tavares Ribeiro, 1400 - Sala 208";
+bairro = "Chácaras Reunidas Santa Terezinha - CEP32183-680";
+fixo = "(31) 3361-3112";
+dominio = "@platlog.com.br";
+site="www.platlog.com.br"
+logo="logo.png"
+barra="barra.png"
+barraCel="barraCel.png"
+color="#7F7F7F"
+corNome="#0077C0"
+
+} else if 
+(city == "Rio de Janeiro - Rio de Janeiro") {
+address = "Rua Francisco de Sousa e Melo, 252";
+bairro = "Cordovil - CEP 21010-410";
+fixo = "(21) 3812-5000";
+dominio = "@platlog.com.br";
+site="www.platlog.com.br"
+logo="logo.png"
+barra="barra.png"
+barraCel="barraCel.png"
+color="#7F7F7F"
+corNome="#0077C0"
+
+} else if 
+(city == "João Pessoa - Paraiba") {
+address = "Rua Cap. José Rodrigues do Ó, 501";
+bairro = "Distrito Industrial - CEP 58082-050";
+fixo = "(11) 2923-3202 / 2923-3203";
+dominio = "@platlog.com.br";
+site="www.platlog.com.br"
+logo="logo.png"
+barra="barra.png"
+barraCel="barraCel.png"
+color="#7F7F7F"
+corNome="#0077C0"
+
+} else if 
+(city == "Manaus - Amazonas") {
+address = "Rua Hibisco, 1186 Galpão A Sala 35" ;
+bairro = "Distrito Industrial II - CEP 69075-844";
+fixo = "(11) 2923-2899";
+dominio = "@platlog.com.br";
+site="www.platlog.com.br"
+logo="logo.png"
+barra="barra.png"
+barraCel="barraCel.png"
+color="#7F7F7F"
+corNome="#0077C0"
+
+} else {
+address = "Av. Antônio Frederico Ozanan, 11000";
+bairro = "Distrito Industrial - CEP 13213-030";
+fixo = "(11) 2923-2801";
+dominio = "@konatransportes.com.br";
+site="www.konatransportes.com.br"
+logo="logo.2.4.jpg"
+barra="barra-kona.png"
+barraCel="barra-kona-cel.png"
+color="#5F877E"
+corNome="#5F877E"
+} ;
+  
+ if (isChecked == true) {
+  <!--Opçõa CELULAR Marcada");-->
+  dados = {nome: nome.value || "[Digite Nome]", Cargo: Cargo.value || "[Digite Cargo]", email: email.value || "[Digite Email]",telef: telef.value || "[Digite Telefone]",cel: "+55 " + cel.value || "[Digite Celular]", city: city, address: address,bairro: bairro,fixo: fixo, dominio: dominio, site: site, logo: logo, barra: barra, color: color, corNome: corNome}
+  
+    } else {
+  <!--Opção CELULAR Desmarcada");-->
+  dados = {nome: nome.value || "[Digite Nome]", Cargo: Cargo.value || "[Digite Cargo]", email: email.value || "[Digite Email]",telef: telef.value || "[Digite Telefone]",city: city, address: address,bairro: bairro,fixo: fixo, dominio: dominio, site: site, logo: logo, barra: barraCel, color: color, corNome: corNome}           
+  };
+
+    assinatura.innerHTML = template.apply(dados);
+
+    createSelection(assinatura);
+
+    try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? 'successful' : 'unsuccessful';
+
+        alerttext.innerHTML = ('Assinatura <b>copiada</b> com sucesso!');
+        alertdiv.classList.add("alert-success");
+        alertdiv.classList.remove("hidden");
+    } catch (err) {
+        alerttext.innerHTML = ('Aperte <code>CTRL+C</code> para copiar');
+        alertdiv.classList.add("alert-info");
+        alertdiv.classList.remove("hidden");
+    }
+	
+    if(dismiss) clearTimeout(dismiss);
+    dismiss = setTimeout(function() {
+        alertdiv.classList.add("hidden");
+    }, 15000);
+}
+
+function createSelection(element) {
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.setStartBefore(element.firstChild);
+    range.setEndAfter(element.lastChild);
+    selection.removeAllRanges();
+    selection.addRange(range);
+}
+
+
+var compileTemplate = function (html) {
+    var re = /{{([^}]*(?:}[^}]+)*}*)}}/g,
+        reExp = /(^( )?(if|for|else|switch|case|break|{|}))(.*)?/g,
+        code = 'var r=[];\n',
+        cursor = 0,
+        match;
+
+    var add = function (line, js) {
+        js ? (code += line.match(reExp) ? line + '\n' : 'r.push(' + line + ');\n') : (code += line != '' ? 'r.push("' + line.replace(/"/g, '\\"') + '");\n' : '');
+        return add;
+    }
+    while (match = re.exec(html)) {
+        add(html.slice(cursor, match.index))(match[1], true);
+        cursor = match.index + match[0].length;
+    }
+    add(html.substr(cursor, html.length - cursor));
+    code += 'return r.join("");';
+
+    var template = new Function(code.replace(/[\r\t\n]/g, ''));
+    return template;
+}
+
+    function generateTemplate(selector) {
+        var el = document.querySelector(selector);
+        if (el.type.toLowerCase() == "template/html") {
+            return compileTemplate(el.innerHTML);
+        } else throw Error("Type of '" + selector + "' is not a template/html");
+    }
+
+
+  //]]></script>
+
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "6mvxgdew"
+      }], "*")
+    }
+
+    // always overwrite window.name, in case users try to set it manually
+    window.name = "result"
+  </script>
+
+
+</div></body></html>
